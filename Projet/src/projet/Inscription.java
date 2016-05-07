@@ -31,6 +31,7 @@ public class Inscription extends javax.swing.JDialog {
         jLabel7 = new javax.swing.JLabel();
         password = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
+        commentaire = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -57,6 +58,8 @@ public class Inscription extends javax.swing.JDialog {
         jLabel7.setText("ville: ");
 
         jLabel8.setText("password :");
+
+        commentaire.setForeground(new java.awt.Color(240, 0, 0));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -86,11 +89,12 @@ public class Inscription extends javax.swing.JDialog {
                                     .addComponent(prénom)
                                     .addComponent(numéro)
                                     .addComponent(rue)))
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(commentaire, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(179, 179, 179)
+                        .addGap(182, 182, 182)
                         .addComponent(valider)))
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addContainerGap(123, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,9 +128,11 @@ public class Inscription extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
-                .addGap(36, 36, 36)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(commentaire)
+                .addGap(33, 33, 33)
                 .addComponent(valider)
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         pack();
@@ -135,24 +141,24 @@ public class Inscription extends javax.swing.JDialog {
     
     private void validerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validerActionPerformed
         if (name.getText().isEmpty() || prénom.getText().isEmpty() || numéro.getText().isEmpty() || rue.getText().isEmpty() || cp.getText().isEmpty() || ville.getText().isEmpty() || password.getText().isEmpty()){
-            jLabel1.setText("Vous devez remplir tous les champs");            
+            commentaire.setText("Vous devez remplir tous les champs");            
         } else {
             try {
                     int num = Integer.parseInt(numéro.getText());
                 } catch(NumberFormatException nfe) {
-        jLabel1.setText("numéro n'est pas un nombre");      
+        commentaire.setText("numéro n'est pas un nombre");      
                 }
             try {
                     int codep = Integer.parseInt(cp.getText());
                 } catch(NumberFormatException nfe) {
-        jLabel1.setText("le code postal n'est pas un nombre");      
+        commentaire.setText("le code postal n'est pas un nombre");      
                 }            
         String password1 = password.getText();
         int longueur = password1.length();  
         if (longueur<6){
-        jLabel1.setText("password fais moins de 6 caractéres");             
+        commentaire.setText("password fais moins de 6 caractéres");             
         }else{
-        jLabel1.setText("Vous êtes inscrit");               
+        commentaire.setText("Vous êtes inscrit");               
         }
 
         }
@@ -201,6 +207,7 @@ public class Inscription extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel commentaire;
     private javax.swing.JTextField cp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
